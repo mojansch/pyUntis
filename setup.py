@@ -14,7 +14,8 @@ setuptools.setup(name="pyUntis",
                  license="MIT",
                  packages=setuptools.find_packages(),
                  install_requires=[
-                     "bs4"
+                     "bs4",
+                     "lxml"
                  ],
                  classifiers=[
                      "Programming Language :: Python :: 3",
