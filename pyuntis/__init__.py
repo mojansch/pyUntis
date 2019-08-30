@@ -15,6 +15,7 @@ class PyUntis:
         date, tag = soup.find("div", "mon_title").text.split(" ")
 
         table = soup.find("table", "mon_list")
+        info_table = soup.find("table", "info")
 
         plan = {
             "stand": stand,
@@ -56,5 +57,10 @@ class PyUntis:
                                 "special_info_text": clean(cols[0].text)
                             })
                 plan["plan"].append(vertretungen)
+
+        infos = info_table.find_all("td", colspan="2")
+
+        for i in infos:
+            plan["informationen"].append(clean(i.text.strip(), info=True))
 
         return plan
