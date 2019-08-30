@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(name="pyUntis",
-                 version="0.1",
+                 version="0.2",
                  description="Python parser for Untis substitution tables",
                  long_description=long_description,
                  long_description_content_type="text/markdown",
