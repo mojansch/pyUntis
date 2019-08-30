@@ -24,10 +24,11 @@ class PyUntis:
             "plan": []
         }
 
-        def clean(string):
+        def clean(string, info=False):
             string = string.replace("\xa0", "")
             string = string.replace("  ", "")
-            string = string.replace("\n", " ")
+            if not info:
+                string = string.replace("\n", " ")
             return string
 
         for td in table.find_all("td", "list inline_header"):
