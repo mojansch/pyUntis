@@ -63,6 +63,6 @@ class PyUntis:
         infos = info_table.find_all("td", colspan="2")
 
         for i in infos:
-            plan["informationen"].append(clean(i.text.strip(), info=True))
+            plan["informationen"].append({"info": clean(i.text.strip())})
 
         return plan

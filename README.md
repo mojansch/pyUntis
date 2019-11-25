@@ -1,4 +1,4 @@
-# pyUntis
+# pyUntis 0.4
 
 Initial working prototype for a Python parser for Untis substitution tables
 
