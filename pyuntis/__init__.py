@@ -1,5 +1,6 @@
-from bs4 import BeautifulSoup
 import re
+
+from bs4 import BeautifulSoup
 
 valid_class = re.compile(r"\d+.?")
 
@@ -22,7 +23,7 @@ class PyUntis:
             "date": date,
             "tag": tag,
             "informationen": [],
-            "plan": {}
+            "plan": {},
         }
 
         def clean(string, info=False):
@@ -41,19 +42,23 @@ class PyUntis:
                             break
                         cols = sibling.find_all("td")
                         if len(cols) > 1:
-                            plan["plan"][td.text].append({
-                                "stunde": clean(cols[0].text),
-                                "lehrerin": clean(cols[1].text),
-                                "fach": clean(cols[2].text),
-                                "raum": clean(cols[3].text),
-                                "informationen": clean(cols[4].text),
-                                "art": clean(cols[5].text)
-                            })
+                            plan["plan"][td.text].append(
+                                {
+                                    "stunde": clean(cols[0].text),
+                                    "lehrerin": clean(cols[1].text),
+                                    "fach": clean(cols[2].text),
+                                    "raum": clean(cols[3].text),
+                                    "informationen": clean(cols[4].text),
+                                    "art": clean(cols[5].text),
+                                }
+                            )
                         else:
-                            plan["plan"][td.text].append({
-                                "special_info": True,
-                                "special_info_text": clean(cols[0].text)
-                            })
+                            plan["plan"][td.text].append(
+                                {
+                                    "special_info": True,
+                                    "special_info_text": clean(cols[0].text),
+                                }
+                            )
 
         infos = info_table.find_all("td", colspan="2")
 
